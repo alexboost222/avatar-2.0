@@ -114,6 +114,301 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""MultiplierSetup"",
+            ""id"": ""701396d8-c49e-4f90-a70d-0fe860bf51e4"",
+            ""actions"": [
+                {
+                    ""name"": ""TakeSource"",
+                    ""type"": ""Button"",
+                    ""id"": ""bf5fe8ca-0668-4393-b23e-45f84238c6cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""9000c3d4-40d5-43e8-8370-828178b7f73d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Fire"",
+                    ""type"": ""Button"",
+                    ""id"": ""7207a3a0-5d61-482d-ba48-ebcb8153a46d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Look"",
+                    ""type"": ""Value"",
+                    ""id"": ""5d40226d-4e3b-4dcc-9138-63cecbaea8f4"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""3c660469-9fda-463f-b6dc-e8350de5e8c8"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""eb449154-ef61-4e5c-912b-0c25bf7227b7"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""WASD"",
+                    ""id"": ""4c6c26a8-53b6-4b58-9595-fd34ca496a26"",
+                    ""path"": ""Dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""2a9a65ae-114f-4611-9089-185766deb5e2"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ab880c0b-c465-4d8d-ab09-213dcfd3fcc0"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""0e666c0c-9e42-402c-8815-3e7acda4a9c3"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8cad2921-2a55-4983-80cb-a4538fce7474"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""169a25e3-65c5-420a-b714-30b2900d194a"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""c13a6e31-9133-4ef5-8984-3194e3406653"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ff5772ea-b7c1-4f7b-a9f5-a6534afbf877"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""6373d9e0-90e4-4435-9656-7c6b3a065313"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d7b6e202-6c0d-4039-a860-e1c7e052125a"",
+                    ""path"": ""<XRController>/{Primary2DAxis}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b0bde16-30a4-4741-a296-7674e5bc1cfb"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""755d6641-89bd-41af-bec5-a2d9665b177b"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0b8d649-99d1-4636-b232-eeb0134fcde1"",
+                    ""path"": ""<Pointer>/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse;Touch"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cfb86d2f-d104-4e12-8995-722743e6d98e"",
+                    ""path"": ""<Joystick>/{Hatswitch}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Look"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b675007-fc89-4a34-b2c3-3367af52ccce"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2d7a896d-6b60-4c64-898f-836e994392d5"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b6ef73d-cd4a-48b0-9050-176eaa0ef176"",
+                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Touch"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b08d10b7-35cf-4b79-8cae-0d85307c3cf9"",
+                    ""path"": ""<Joystick>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Joystick"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c819d6b7-2ed4-4225-96d5-65ab9a934cac"",
+                    ""path"": ""<XRController>/{PrimaryAction}"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""XR"",
+                    ""action"": ""Fire"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a53d6823-05a1-4c22-94e3-b659beaff541"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""29934730-4f32-4f72-bd4f-c5db12037485"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""TakeSource"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -139,6 +434,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Game = asset.FindActionMap("Game", throwIfNotFound: true);
         m_Game_Move = m_Game.FindAction("Move", throwIfNotFound: true);
         m_Game_Look = m_Game.FindAction("Look", throwIfNotFound: true);
+        // MultiplierSetup
+        m_MultiplierSetup = asset.FindActionMap("MultiplierSetup", throwIfNotFound: true);
+        m_MultiplierSetup_TakeSource = m_MultiplierSetup.FindAction("TakeSource", throwIfNotFound: true);
+        m_MultiplierSetup_Jump = m_MultiplierSetup.FindAction("Jump", throwIfNotFound: true);
+        m_MultiplierSetup_Fire = m_MultiplierSetup.FindAction("Fire", throwIfNotFound: true);
+        m_MultiplierSetup_Look = m_MultiplierSetup.FindAction("Look", throwIfNotFound: true);
+        m_MultiplierSetup_Move = m_MultiplierSetup.FindAction("Move", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -235,6 +537,71 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         }
     }
     public GameActions @Game => new GameActions(this);
+
+    // MultiplierSetup
+    private readonly InputActionMap m_MultiplierSetup;
+    private IMultiplierSetupActions m_MultiplierSetupActionsCallbackInterface;
+    private readonly InputAction m_MultiplierSetup_TakeSource;
+    private readonly InputAction m_MultiplierSetup_Jump;
+    private readonly InputAction m_MultiplierSetup_Fire;
+    private readonly InputAction m_MultiplierSetup_Look;
+    private readonly InputAction m_MultiplierSetup_Move;
+    public struct MultiplierSetupActions
+    {
+        private @Controls m_Wrapper;
+        public MultiplierSetupActions(@Controls wrapper) { m_Wrapper = wrapper; }
+        public InputAction @TakeSource => m_Wrapper.m_MultiplierSetup_TakeSource;
+        public InputAction @Jump => m_Wrapper.m_MultiplierSetup_Jump;
+        public InputAction @Fire => m_Wrapper.m_MultiplierSetup_Fire;
+        public InputAction @Look => m_Wrapper.m_MultiplierSetup_Look;
+        public InputAction @Move => m_Wrapper.m_MultiplierSetup_Move;
+        public InputActionMap Get() { return m_Wrapper.m_MultiplierSetup; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MultiplierSetupActions set) { return set.Get(); }
+        public void SetCallbacks(IMultiplierSetupActions instance)
+        {
+            if (m_Wrapper.m_MultiplierSetupActionsCallbackInterface != null)
+            {
+                @TakeSource.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnTakeSource;
+                @TakeSource.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnTakeSource;
+                @TakeSource.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnTakeSource;
+                @Jump.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnJump;
+                @Fire.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnFire;
+                @Fire.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnFire;
+                @Fire.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnFire;
+                @Look.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnLook;
+                @Look.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnLook;
+                @Look.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnLook;
+                @Move.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnMove;
+            }
+            m_Wrapper.m_MultiplierSetupActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @TakeSource.started += instance.OnTakeSource;
+                @TakeSource.performed += instance.OnTakeSource;
+                @TakeSource.canceled += instance.OnTakeSource;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
+                @Fire.started += instance.OnFire;
+                @Fire.performed += instance.OnFire;
+                @Fire.canceled += instance.OnFire;
+                @Look.started += instance.OnLook;
+                @Look.performed += instance.OnLook;
+                @Look.canceled += instance.OnLook;
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+            }
+        }
+    }
+    public MultiplierSetupActions @MultiplierSetup => new MultiplierSetupActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     public InputControlScheme KeyboardMouseScheme
     {
@@ -248,5 +615,13 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+    }
+    public interface IMultiplierSetupActions
+    {
+        void OnTakeSource(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
+        void OnFire(InputAction.CallbackContext context);
+        void OnLook(InputAction.CallbackContext context);
+        void OnMove(InputAction.CallbackContext context);
     }
 }
