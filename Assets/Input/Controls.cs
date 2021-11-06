@@ -120,7 +120,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             ""id"": ""701396d8-c49e-4f90-a70d-0fe860bf51e4"",
             ""actions"": [
                 {
-                    ""name"": ""TakeSource"",
+                    ""name"": ""SecondaryAction"",
                     ""type"": ""Button"",
                     ""id"": ""bf5fe8ca-0668-4393-b23e-45f84238c6cf"",
                     ""expectedControlType"": ""Button"",
@@ -138,7 +138,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""PrimaryAction"",
                     ""type"": ""Button"",
                     ""id"": ""7207a3a0-5d61-482d-ba48-ebcb8153a46d"",
                     ""expectedControlType"": ""Button"",
@@ -338,7 +338,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
+                    ""action"": ""PrimaryAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -349,7 +349,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
+                    ""action"": ""PrimaryAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -360,7 +360,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
+                    ""action"": ""PrimaryAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -371,7 +371,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
+                    ""action"": ""PrimaryAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -382,7 +382,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""XR"",
-                    ""action"": ""Fire"",
+                    ""action"": ""PrimaryAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -404,7 +404,7 @@ public partial class @Controls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""TakeSource"",
+                    ""action"": ""SecondaryAction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -436,9 +436,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         m_Game_Look = m_Game.FindAction("Look", throwIfNotFound: true);
         // MultiplierSetup
         m_MultiplierSetup = asset.FindActionMap("MultiplierSetup", throwIfNotFound: true);
-        m_MultiplierSetup_TakeSource = m_MultiplierSetup.FindAction("TakeSource", throwIfNotFound: true);
+        m_MultiplierSetup_SecondaryAction = m_MultiplierSetup.FindAction("SecondaryAction", throwIfNotFound: true);
         m_MultiplierSetup_Jump = m_MultiplierSetup.FindAction("Jump", throwIfNotFound: true);
-        m_MultiplierSetup_Fire = m_MultiplierSetup.FindAction("Fire", throwIfNotFound: true);
+        m_MultiplierSetup_PrimaryAction = m_MultiplierSetup.FindAction("PrimaryAction", throwIfNotFound: true);
         m_MultiplierSetup_Look = m_MultiplierSetup.FindAction("Look", throwIfNotFound: true);
         m_MultiplierSetup_Move = m_MultiplierSetup.FindAction("Move", throwIfNotFound: true);
     }
@@ -541,18 +541,18 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     // MultiplierSetup
     private readonly InputActionMap m_MultiplierSetup;
     private IMultiplierSetupActions m_MultiplierSetupActionsCallbackInterface;
-    private readonly InputAction m_MultiplierSetup_TakeSource;
+    private readonly InputAction m_MultiplierSetup_SecondaryAction;
     private readonly InputAction m_MultiplierSetup_Jump;
-    private readonly InputAction m_MultiplierSetup_Fire;
+    private readonly InputAction m_MultiplierSetup_PrimaryAction;
     private readonly InputAction m_MultiplierSetup_Look;
     private readonly InputAction m_MultiplierSetup_Move;
     public struct MultiplierSetupActions
     {
         private @Controls m_Wrapper;
         public MultiplierSetupActions(@Controls wrapper) { m_Wrapper = wrapper; }
-        public InputAction @TakeSource => m_Wrapper.m_MultiplierSetup_TakeSource;
+        public InputAction @SecondaryAction => m_Wrapper.m_MultiplierSetup_SecondaryAction;
         public InputAction @Jump => m_Wrapper.m_MultiplierSetup_Jump;
-        public InputAction @Fire => m_Wrapper.m_MultiplierSetup_Fire;
+        public InputAction @PrimaryAction => m_Wrapper.m_MultiplierSetup_PrimaryAction;
         public InputAction @Look => m_Wrapper.m_MultiplierSetup_Look;
         public InputAction @Move => m_Wrapper.m_MultiplierSetup_Move;
         public InputActionMap Get() { return m_Wrapper.m_MultiplierSetup; }
@@ -564,15 +564,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MultiplierSetupActionsCallbackInterface != null)
             {
-                @TakeSource.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnTakeSource;
-                @TakeSource.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnTakeSource;
-                @TakeSource.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnTakeSource;
+                @SecondaryAction.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnSecondaryAction;
+                @SecondaryAction.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnSecondaryAction;
+                @SecondaryAction.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnSecondaryAction;
                 @Jump.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnJump;
-                @Fire.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnFire;
+                @PrimaryAction.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnPrimaryAction;
+                @PrimaryAction.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnPrimaryAction;
+                @PrimaryAction.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnPrimaryAction;
                 @Look.started -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnLook;
                 @Look.performed -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnLook;
                 @Look.canceled -= m_Wrapper.m_MultiplierSetupActionsCallbackInterface.OnLook;
@@ -583,15 +583,15 @@ public partial class @Controls : IInputActionCollection2, IDisposable
             m_Wrapper.m_MultiplierSetupActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @TakeSource.started += instance.OnTakeSource;
-                @TakeSource.performed += instance.OnTakeSource;
-                @TakeSource.canceled += instance.OnTakeSource;
+                @SecondaryAction.started += instance.OnSecondaryAction;
+                @SecondaryAction.performed += instance.OnSecondaryAction;
+                @SecondaryAction.canceled += instance.OnSecondaryAction;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @PrimaryAction.started += instance.OnPrimaryAction;
+                @PrimaryAction.performed += instance.OnPrimaryAction;
+                @PrimaryAction.canceled += instance.OnPrimaryAction;
                 @Look.started += instance.OnLook;
                 @Look.performed += instance.OnLook;
                 @Look.canceled += instance.OnLook;
@@ -618,9 +618,9 @@ public partial class @Controls : IInputActionCollection2, IDisposable
     }
     public interface IMultiplierSetupActions
     {
-        void OnTakeSource(InputAction.CallbackContext context);
+        void OnSecondaryAction(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
+        void OnPrimaryAction(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
     }
