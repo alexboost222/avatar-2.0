@@ -15,9 +15,12 @@ namespace MultiplayerSetup.Controllers
         [SerializeField] private float groundSpeed;
         [SerializeField] private float airSpeed;
         [SerializeField] private float jumpSpeed;
+        [SerializeField] private float lookSpeed;
         
         private Rigidbody _rigidbody;
+        
         private Vector2 _moveInput;
+        private float _lookInput;
         private bool _jumpInput;
 
         private Vector2 MoveInput
@@ -28,11 +31,9 @@ namespace MultiplayerSetup.Controllers
         
         public void Move(Vector2 moveInput) => ProcessMoveInputServerRpc(moveInput);
 
-        public void Jump()
-        {
-            Debug.Log("Jump input received", this);
-            ProcessJumpInputServerRpc();
-        }
+        public void Look(float lookInput) => ProcessLookInputServerRpc(lookInput);
+
+        public void Jump() => ProcessJumpInputServerRpc();
 
         private void Awake() => _rigidbody = GetComponent<Rigidbody>();
 
@@ -46,6 +47,8 @@ namespace MultiplayerSetup.Controllers
             HandleMovement(isOnGround);
             
             HandleJump(isOnGround);
+
+            HandleLook();
         }
 
         private void HandleMovement(bool isOnGround)
@@ -53,10 +56,11 @@ namespace MultiplayerSetup.Controllers
             if (!IsServer) return;
             
             float speed = isOnGround ? groundSpeed : airSpeed;
+            Transform myTransform = transform;
 
-            Vector3 currentPosition = transform.position;
-            Vector3 newPosition = currentPosition + Vector3.forward * (_moveInput.y * Time.deltaTime * speed) +
-                                  Vector3.right * (_moveInput.x * Time.deltaTime * speed);
+            Vector3 currentPosition = myTransform.position;
+            Vector3 newPosition = currentPosition + myTransform.forward * (_moveInput.y * Time.deltaTime * speed) +
+                                  myTransform.right * (_moveInput.x * Time.deltaTime * speed);
             
             _rigidbody.MovePosition(newPosition);
             
@@ -73,12 +77,15 @@ namespace MultiplayerSetup.Controllers
             if (!isOnGround) return;
             
             _rigidbody.AddForce(jumpSpeed * Time.fixedDeltaTime * Vector3.up);
-            
-            Debug.Log("Jump!", this);
         }
+
+        private void HandleLook() => transform.Rotate(Vector3.up, _lookInput * lookSpeed * Time.deltaTime);
 
         [ServerRpc]
         private void ProcessMoveInputServerRpc(Vector2 moveInput) => MoveInput = moveInput;
+
+        [ServerRpc]
+        private void ProcessLookInputServerRpc(float lookInput) => _lookInput = lookInput;
 
         [ServerRpc]
         private void ProcessJumpInputServerRpc() => _jumpInput = true;
