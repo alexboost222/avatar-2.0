@@ -48,10 +48,8 @@ namespace Controls
             transform.Rotate(Vector3.up, lookVector.x * lookSpeed.x);
         }
 
-        private void CheckIfOnGround()
-        {
-            IsOnGround = Physics.Raycast(transform.position + Vector3.up * groundDistance, Vector3.down, groundDistance * 2, groundMask);
-        }
+        private void CheckIfOnGround() => IsOnGround = Physics.Raycast(transform.position + Vector3.up * groundDistance,
+            Vector3.down, groundDistance * 2, groundMask);
 
         private void HandleMovement(Vector2 movement)
         {
@@ -61,28 +59,19 @@ namespace Controls
             rb.AddRelativeForce(Vector3.right * (movement.x * Time.deltaTime * speed * 100));
         }
 
-        public void Move(Vector2 vec)
-            => _moveVector = vec;
+        public void Move(Vector2 vec) => _moveVector = vec;
 
-        public void Look(Vector2 vec)
-            => _lookVector = vec;
+        public void Look(Vector2 vec) => _lookVector = vec;
 
-        public void Fire()
+        public void Fire() => PrimaryAction?.Invoke();
+
+        public void Jump()
         {
-            PrimaryAction?.Invoke();
-        }
-
-        public void OnJump(InputAction.CallbackContext context)
-        {
-            if (!IsOnGround)
-                return;
+            if (!IsOnGround) return;
             
             rb.AddRelativeForce(Vector3.up * Time.fixedDeltaTime * jumpSpeed);
         }
 
-        public void OnTakeSource(InputAction.CallbackContext context)
-        {
-            TakeSource?.Invoke();
-        }
+        public void SecondaryAction() => TakeSource?.Invoke();
     }
 }
