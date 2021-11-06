@@ -21,12 +21,10 @@ namespace MultiplayerSetup.Controllers
             if (IsServer)
             {
                 myTransform.Rotate(Vector3.right, _lookInput * lookSpeed * Time.deltaTime);
-                Debug.Log($"Writing server rotation {myTransform.rotation}");
                 _rotationNetworkVariable.Value = myTransform.rotation;
             }
             else
             {
-                Debug.Log($"Applying server rotation {_rotationNetworkVariable.Value}");
                 myTransform.rotation = _rotationNetworkVariable.Value;
             }
         }
