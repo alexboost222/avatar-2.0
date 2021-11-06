@@ -19,11 +19,8 @@ namespace NetcodeInputTesting
             set => _moveInput = new Vector2(Mathf.Clamp(value.x, -1, 1), Mathf.Clamp(value.y, -1, 1));
         }
 
-        public void OnMove(InputAction.CallbackContext callbackContext)
-        {
-            Debug.Log("OnMove called");
-            if (IsLocalPlayer) OnMoveInputServerRPC(callbackContext.ReadValue<Vector2>());
-        }
+        public void OnMove(InputAction.CallbackContext callbackContext) =>
+            OnMoveInputServerRpc(callbackContext.ReadValue<Vector2>());
 
         public override void OnDestroy()
         {
@@ -49,10 +46,12 @@ namespace NetcodeInputTesting
 
         private void OnPositionNetworkValueChanged(Vector3 _, Vector3 become)
         {
-            if (!IsServer) transform.position = become;
+            if (IsServer) return;
+            
+            transform.position = become;
         }
 
         [ServerRpc]
-        private void OnMoveInputServerRPC(Vector2 moveInput) => MoveInput = moveInput;
+        private void OnMoveInputServerRpc(Vector2 moveInput) => MoveInput = moveInput;
     }
 }

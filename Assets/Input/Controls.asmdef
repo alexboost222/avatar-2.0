@@ -1,10 +1,8 @@
 {
-    "name": "NetcodeInputTesting",
+    "name": "Controls",
     "rootNamespace": "",
     "references": [
-        "GUID:1491147abca9d7d4bb7105af628b223e",
-        "GUID:75469ad4d38634e559750d17036d5f7c",
-        "GUID:a8d5d0a5b0ee27e49b72993801325d1f"
+        "GUID:75469ad4d38634e559750d17036d5f7c"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
