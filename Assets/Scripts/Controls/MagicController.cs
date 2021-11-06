@@ -1,4 +1,3 @@
-using System;
 using Magic;
 using UnityEngine;
 
@@ -20,14 +19,14 @@ namespace Controls
         
         private void OnEnable()
         {
-            playerController.Fire += Fire;
+            playerController.PrimaryAction += Fire;
             playerController.TakeSource += ShieldUp;
         }
 
         
         private void OnDisable()
         {
-            playerController.Fire -= Fire;
+            playerController.PrimaryAction -= Fire;
             playerController.TakeSource -= ShieldUp;
         }
         
