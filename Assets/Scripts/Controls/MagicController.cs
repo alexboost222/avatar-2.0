@@ -20,14 +20,14 @@ namespace Controls
         
         private void OnEnable()
         {
-            playerController.PrimaryAction += Fire;
+            playerController.Fire += Fire;
             playerController.TakeSource += ShieldUp;
         }
 
         
         private void OnDisable()
         {
-            playerController.PrimaryAction -= Fire;
+            playerController.Fire -= Fire;
             playerController.TakeSource -= ShieldUp;
         }
         
