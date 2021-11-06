@@ -4,12 +4,12 @@ using UnityEngine.InputSystem;
 
 namespace Controls
 {
-    public class PlayerController : MonoBehaviour, Controls.IPlayerActions
+    public class PlayerController : MonoBehaviour
     {
         public Rigidbody Rb => rb;
         public StatsController Stats => stats;
         
-        public event Action Fire;
+        public event Action PrimaryAction;
         public event Action TakeSource;
 
         public bool IsOnGround { get; private set; }
@@ -30,21 +30,8 @@ namespace Controls
         [SerializeField]
         private Rigidbody rb;
         
-        private Controls _controls;
-        
         private Vector2 _moveVector;
         private Vector2 _lookVector;
-        
-        private void OnEnable()
-        {
-            if (_controls == null)
-            {
-                _controls = new Controls();
-                _controls.Player.SetCallbacks(this);
-            }
-            
-            _controls.Player.Enable();
-        }
 
         private void Update()
         {
@@ -74,16 +61,15 @@ namespace Controls
             rb.AddRelativeForce(Vector3.right * (movement.x * Time.deltaTime * speed * 100));
         }
 
-        public void OnMove(InputAction.CallbackContext context)
-            => _moveVector = context.ReadValue<Vector2>();
+        public void Move(Vector2 vec)
+            => _moveVector = vec;
 
-        public void OnLook(InputAction.CallbackContext context)
-            => _lookVector = context.ReadValue<Vector2>();
+        public void Look(Vector2 vec)
+            => _lookVector = vec;
 
-        public void OnFire(InputAction.CallbackContext context)
+        public void Fire()
         {
-            if (context.performed)
-                Fire?.Invoke();
+            PrimaryAction?.Invoke();
         }
 
         public void OnJump(InputAction.CallbackContext context)
@@ -96,8 +82,7 @@ namespace Controls
 
         public void OnTakeSource(InputAction.CallbackContext context)
         {
-            if (context.performed)
-                TakeSource?.Invoke();
+            TakeSource?.Invoke();
         }
     }
 }
